@@ -1,10 +1,12 @@
 #include <stdio.h>
 #include <unistd.h>
 #include <stdlib.h>
+
+
 int main()
 {
 
-//clears terminal//
+//clears terminal and prints splash screen and menu
 system("clear");
 
 printf(
@@ -17,6 +19,7 @@ printf(
 "╚═╝░░╚═╝░░░╚═╝░░░░╚════╝░╚═╝╚═════╝░╚═╝░░╚═╝╚═╝░░╚══╝░╚════╝░╚══════╝\n");
  sleep (5);
  
+system("clear");
 
 
 int menu_option;
@@ -28,21 +31,31 @@ int menu_option;
 
 do
   {
-    printf("MAIN MENU\n");
-    printf("Press 1 to play, 0 to exit: ");
+    printf("Press 1 to play \n");
+    printf("Press 2 for help \n"); 
+    printf("Press 3 to exit \n");
     scanf("%d", &menu_option);
     switch(menu_option){
-      case 0:
-      {
-        printf("Alright, exiting the program...\n");
-                sleep(1);
-                break;
-      }
 
       case 1:
       {
-        
+       printf("game");
         break;
+      }
+
+      case 2:
+      {
+      system("clear");
+       printf("This will be updated in future \n");
+        break;
+      }
+
+      case 3:
+      {
+        printf("Alright, exiting the program...\n");
+         sleep(1);
+	 printf("Thanks for playing!\n");
+          break;
       }
 
       default:
@@ -52,9 +65,13 @@ do
         break;
       }
     }
-  }while(menu_option != 0); //End the program after user enters "0 " in the main menu
+  }while((menu_option != 3) && (menu_option !=1)); //Ends the menu after user enters "1 or 3"
 
-  printf("Thanks for playing!\n");  //Bye bye message
+
+
+
+
+
   return 0;
 }
 
