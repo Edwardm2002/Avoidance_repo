@@ -2,6 +2,32 @@
 #include <unistd.h>
 #include <stdlib.h>
 
+void room1(){
+printf(
+"┌─────────────────────────────────────────┐\n"
+"│                                         │\n"
+"│                ┌────────────────────┐   │\n"
+"│                │ Danger Ahead!!!!!  │   │\n"
+"│                │                    │   │\n"
+"│                └────────────────────┘   │\n"
+"│     ┌────────┐                          │\n"
+"│     │┼┼┼┼┼┼┼┼│                          │\n"
+"│     │┼┼┼┼┼┼┼┼│         ┌────┐           │\n"
+"│     │┼┼┼┼┼┼┼┼│         │┼┼┼┼│           │\n"
+"│     │┼┼┼┼┼┼┼┼│         └────┘           │\n"
+"│     │┼┼┼┼┼┼┼┼│                          │\n"
+"└─────┴────────┴──────────────────────────┘\n");
+printf("You have come across the abandoned warehouse\n"); 
+printf("it has been abandoned for many years therefore there will be many suprises\n");
+
+
+}
+
+int Game(){
+system("clear");
+room1();
+
+}
 
 int main()
 {
@@ -39,7 +65,7 @@ do
 
       case 1:
       {
-       printf("game");
+       Game();
         break;
       }
 
@@ -47,7 +73,7 @@ do
       {
       system("clear");
        printf("This will be updated in future \n");
-        break;
+      break;
       }
 
       case 3:
@@ -68,17 +94,13 @@ do
   }while((menu_option != 3) && (menu_option !=1)); //Ends the menu after user enters "1 or 3"
 
 
+	
+void Rooms(){
 
-
-
-
-  return 0;
 }
 
-
-
-
-
+  return 0;
+  }
 
 
 
