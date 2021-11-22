@@ -41,8 +41,8 @@ printf(
 printf("You have come across the abandoned warehouse\n"); 
 printf("it has been abandoned for many years therefore there will be many suprises\n");
 printf("Do you want to enter?\n");
-printf("1) I am fearless\n");
-printf("2) No, I want to go home\n");
+printf("1) Enter\n");
+printf("2) Run Away\n");
 action = choice();
 switch (action)
 {
@@ -63,21 +63,113 @@ void room2(){
 printf(
 "┌─────────────────────────────────────────┐\n"
 "│                                         │\n"
-"│                ┌────────────────────┐   │\n"
-"│                │ Danger Ahead!!!!!  │   │\n"
-"│                │                    │   │\n"
-"│                └────────────────────┘   │\n"
-"│     ┌────────┐                          │\n"
-"│     │┼┼┼┼┼┼┼┼│                          │\n"
-"│     │┼┼┼┼┼┼┼┼│         ┌────┐           │\n"
-"│     │┼┼┼┼┼┼┼┼│         │┼┼┼┼│           │\n"
-"│     │┼┼┼┼┼┼┼┼│         └────┘           │\n"
-"│     │┼┼┼┼┼┼┼┼│                          │\n"
-"└─────┴────────┴──────────────────────────┘\n");
+"│                                         │\n"
+"│                                         │\n"
+"│                                         │\n"
+"│                                         │\n"
+"│Exit    Factory       Testing            │\n"
+"├───┐    ┌─────┐       ┌─────┐            │\n"
+"│   │    │     │       │     │            │\n"
+"│   │    │     │       │     │            │\n"
+"│   │    │     │       │     │    ┌─┬─┬─┐ │\n"
+"│   │    │     │       │     │    │┼│0│┼│ │\n"
+"└───┴────┴─────┴───────┴─────┴────┴─┴─┴─┴─┘\n");
 printf("You are now inside\n"); 
 printf("Which way do you want to go\n");
-printf("1) I am fearless\n");
+printf("1) Into the factory\n");
+printf("2) Into the testing room\n");
+printf("3) Open the box\n");
+printf("4) Exit back outdoors\n");
+action = choice();
+switch (action)
+{
+  case 1: room = 3;
+  break;
+  
+  case 2: room = 4;
+  break;
+  
+  case 3: room = 5;
+  break;
+  
+  case 4: room = 1;
+  break;
+  
+  default: error();
+  break; 
+   }
+   move();
+}
+
+void room3(){
+printf(
+"┌─────────────────────────────────────────┐\n"
+"│                                         │\n"
+"│                x                        │\n"
+"│              x │ x                      │\n"
+"│             x──┼──x                     │\n"
+"│              x │ x                      │\n"
+"│                x                        │\n"
+"│                                         │\n"
+"│                                 ┌─┬─┬─┐ │\n"
+"│       ┌─┐            Testing    │┼│0│┼│ │\n"
+"├───┐   │ │            ┌─────┐   ─┴─┴─┴─┴─┤\n"
+"│   │   o │     ┌┬─┬┐  │     │            │\n"
+"│   │   ┌─┴┐   ┌┼│ ││  │     │            │\n"
+"│   │   │  │  ┌┴─┴─┴┴┐ │     │    ┌─┬─┬─┐ │\n"
+"│   │   │  │  │      │ │     │    │┼│0│┼│ │\n"
+"└───┴───┴──┴──┴──────┴─┴─────┴────┴─┴─┴─┴─┘\n");
+printf("This is where all materials used to make the bombs were processed\n"); 
+printf("Be aware that bombs may be kept anywhere and might be live\n");
+printf("1) Go into testing room\n");
+printf("2) Open lower box\n");
+printf("3) Open upper box\n");
+action = choice();
+switch (action)
+{
+  case 1: room = 4;
+  break;
+  
+  case 2: room = 6;
+  break;
+  
+  case 3: room = 6; //to be changed in future//
+  break;
+   
+  default: error();
+  break; 
+   }
+   move();
+}
+
+void room4(){
+printf(
+"┌─────────────────────────────────────────┐\n"
+"│                                         │\n"
+"│                                         │\n"
+"│                                         │\n"
+"│          TESTING IN PROGRESS            │\n"
+"│                                         │\n"
+"│        ┌───────┬──────────────┐         │\n"
+"│        │       │              │         │\n"
+"│        │       │   xxx        │  CODE   │\n"
+"│        │       └─xxxxxx       │  LOCKED │\n"
+"├───┐    │           xxx        │ ┌─────┐ │\n"
+"│   │    │       ┌─────┐        │O│     │O│\n"
+"│   │    │       │┼┼┼┼┼│        │O│     │O│\n"
+"│   │    └───────┴─────┴────────┘O│     │O│\n"
+"│   │                             │     │ │\n"
+"└───┴──────┬─────┬────────────────┴─────┴─┘\n"
+"           └──┼──┘\n"
+ "              │\n"
+  "              ▼\n");
+printf("You have come across the abandoned warehouse\n"); 
+printf("it has been abandoned for many years therefore there will be many suprises\n");
+printf("Do you want to enter?\n");
+printf("1) Go down trap door into storage\n");
 printf("2) No, I want to go home\n");
+printf("3) No, I want to go home\n");
+printf("TO OPEN THE DOOR ENTER CODE\n");
 action = choice();
 switch (action)
 {
@@ -86,7 +178,81 @@ switch (action)
   
   case 2: wimp = 1;
   break;
-  
+   
+  default: error();
+  break; 
+   }
+   move();
+}
+
+void box1(){
+printf(
+"┌────────────────────────┐\n"
+"│                        │\n"
+"│                        │\n"
+"│                        │\n"
+"│                        │\n"
+"│                        │\n"
+"│                        │\n"
+"│                        │\n"
+"│                        │\n"
+"├────────────────────────┤\n"
+"│┼──────────────────────┼│\n"
+"││                      ││\n"
+"││  This is a secret    ││\n"
+"││      Message !       ││\n"
+"││                      ││\n"
+"││ Avoid the bombs!!    ││\n"
+"││ They will be hidden  ││\n"
+"││ in boxes like this.  ││\n"
+"│┼──────────────────────┼│\n"
+"└────────────────────────┘\n");
+printf("It appears you have found a useful hint\n"); 
+printf("Don't go around opening too many boxes\n"); 
+printf("You will need to \n");
+printf("1) Exit Box\n");
+action = choice();
+switch (action)
+{
+  case 1: room = 2;
+  break;
+   
+  default: error();
+  break; 
+   }
+   move();
+}
+
+void box2(){
+printf(
+"┌────────────────────────┐\n"
+"│                        │\n"
+"│                        │\n"
+"│                        │\n"
+"│                        │\n"
+"│                        │\n"
+"│                        │\n"
+"│                        │\n"
+"│                        │\n"
+"├────────────────────────┤\n"
+"│┼──────────────────────┼│\n"
+"││                      ││\n"
+"││ ┌┐   xxxxxxxxxx      ││\n"
+"││ │┼──xxxxxxxxxxxxx    ││\n"
+"││ ││ xxxxxxxxxxxxxxx   ││\n"
+"││ │┼──xxxxxxxxxxxxx    ││\n"
+"││ └┘   xxxxxxxxxx      ││\n"
+"││                      ││\n"
+"│┼──────────────────────┼│\n"
+"└────────────────────────┘\n");
+printf("It seems like you have stumbled upon a bomb\n"); 
+printf("1) Exit Game\n");
+action = choice();
+switch (action)
+{
+  case 1: dead = 1;
+  break;
+   
   default: error();
   break; 
    }
@@ -107,6 +273,17 @@ while (!dead && !wimp){
   case 2: room2();
   break;
   
+  case 3: room3();
+  break;
+  
+  case 4: room4();
+  break;
+  
+  case 5: box1();
+  break;
+  
+  case 6: box2();
+  break;
  }
 }
 
