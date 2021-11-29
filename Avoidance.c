@@ -6,6 +6,7 @@ int action;
 int dead = 0;
 int wimp = 0;
 int room = 1;
+int havekey = 0;
 
 void error(){
 printf("Error Occured\n"); //Prints if while loops dont have a case met//
@@ -176,7 +177,7 @@ switch (action)
   case 2: room = 3;
   break;
   
-  case 5784: room = 1;
+  case 5784: room = 10;
   break;
    
   default: error();
@@ -207,6 +208,43 @@ printf("1) Open box 1\n");
 printf("2) Open box 2\n");
 printf("3) Open box 3\n");
 printf("4) Go back to testing room\n");
+action = choice();
+switch (action)
+{
+  case 1: room = 6;
+  break;
+  
+  case 2: room = 7;
+  break;
+  
+  case 3: room = 6; 
+  break;
+   
+  case 4: room = 4;
+  break;
+  
+  default: error();
+  break; 
+   }
+   move();
+}
+
+void room6(){
+sleep (1);
+printf("You have been plunged into darkness\n");
+sleep (1);
+printf("You have to feel around\n");
+sleep (1);
+printf("You feel a door handle to the left \n");
+sleep (1);
+printf("There is a box to the right\n");
+sleep (1);
+printf("There is a box in front of you\n");
+sleep (1);
+printf("1) Open try open door handle\n");
+printf("2) Open box to the right of you\n");
+printf("3) Open box in front of you\n\n\n");
+printf("You cannot go back now\n");
 action = choice();
 switch (action)
 {
@@ -415,6 +453,9 @@ while (!dead && !wimp){
   break;
   
   case 9: room5();
+  break;
+  
+  case 10: room6();
   break;
  }
 }
