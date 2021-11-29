@@ -133,7 +133,7 @@ switch (action)
   case 2: room = 6;
   break;
   
-  case 3: room = 6; //to be changed in future//
+  case 3: room = 8; //to be changed in future//
   break;
    
   default: error();
@@ -163,22 +163,65 @@ printf(
 "           └──┼──┘\n"
  "              │\n"
   "              ▼\n");
-printf("You have come across the abandoned warehouse\n"); 
-printf("it has been abandoned for many years therefore there will be many suprises\n");
-printf("Do you want to enter?\n");
+printf("To enter the main lab you need the code\n");
 printf("1) Go down trap door into storage\n");
-printf("2) No, I want to go home\n");
-printf("3) No, I want to go home\n");
+printf("2) Go to the factory\n");
 printf("TO OPEN THE DOOR ENTER CODE\n");
 action = choice();
 switch (action)
 {
-  case 1: room = 2;
+  case 1: room = 9;
   break;
   
-  case 2: wimp = 1;
+  case 2: room = 3;
+  break;
+  
+  case 5784: room = 1;
   break;
    
+  default: error();
+  break; 
+   }
+   move();
+}
+
+void room5(){
+printf(
+"┌─────────────────┬───┬───────────────────┐\n"
+"│    1            ├───┤                   │\n"
+"│ ┌─┬─┬─┐         │   │                   │\n"
+"│ │┼│o│┼│         ├───┤              2    │\n"
+"├─┴─┴─┴─┴──       │   │           ┌─┬─┬─┐ │\n"
+"│                 ├───┤           │┼│o│┼│ │\n"
+"│                 │   │          ─┴─┴─┴─┴─┤\n"
+"│    3            ├───┤                   │\n"
+"│ ┌─┬─┬─┐         │   │                   │\n"
+"│ │┼│o│┼│         ├───┤                   │\n"
+"├─┴─┴─┴─┴────     │   │                   │\n"
+"│                 ├───┤                   │\n"
+"│                 │   │                   │\n"
+"│                 ├───┤                   │\n"
+"│                 │   │                   │\n"
+"└─────────────────┴───┴───────────────────┘\n");
+printf("1) Open box 1\n");
+printf("2) Open box 2\n");
+printf("3) Open box 3\n");
+printf("4) Go back to testing room\n");
+action = choice();
+switch (action)
+{
+  case 1: room = 6;
+  break;
+  
+  case 2: room = 7;
+  break;
+  
+  case 3: room = 6; 
+  break;
+   
+  case 4: room = 4;
+  break;
+  
   default: error();
   break; 
    }
@@ -246,11 +289,91 @@ printf(
 "│┼──────────────────────┼│\n"
 "└────────────────────────┘\n");
 printf("It seems like you have stumbled upon a bomb\n"); 
-printf("1) Exit Game\n");
+printf("Press 1 to continue\n");
 action = choice();
 switch (action)
 {
-  case 1: dead = 1;
+  case 1: 
+  system("clear");
+  printf("\n\n\n");
+  printf("3\n");
+  sleep (1);
+   printf("2\n");
+  sleep (1);
+   printf("1\n");
+  sleep (1);
+  printf("You have been blown up\n");
+  dead = 1;
+  break;
+   
+  default: error();
+  break; 
+   }
+   move();
+}
+
+void box3(){
+printf(
+"┌────────────────────────┐\n"
+"│                        │\n"
+"│                        │\n"
+"│                        │\n"
+"│                        │\n"
+"│                        │\n"
+"│                        │\n"
+"│                        │\n"
+"│                        │\n"
+"├────────────────────────┤\n"
+"│┼──────────────────────┼│\n"
+"││                      ││\n"
+"││                      ││\n"
+"││                      ││\n"
+"││         5784         ││\n"
+"││                      ││\n"
+"││                      ││\n"
+"││                      ││\n"
+"│┼──────────────────────┼│\n"
+"└────────────────────────┘\n"); 
+printf("1) Exit Box\n");
+action = choice();
+switch (action)
+{
+  case 1: room = 9;
+  break;
+   
+  default: error();
+  break; 
+   }
+   move();
+}
+
+void box4(){
+printf(
+"┌────────────────────────┐\n"
+"│                        │\n"
+"│                        │\n"
+"│                        │\n"
+"│                        │\n"
+"│                        │\n"
+"│                        │\n"
+"│                        │\n"
+"│                        │\n"
+"├────────────────────────┤\n"
+"│┼──────────────────────┼│\n"
+"││                      ││\n"
+"││                      ││\n"
+"││                      ││\n"
+"││                      ││\n"
+"││                      ││\n"
+"││                      ││\n"
+"││                      ││\n"
+"│┼──────────────────────┼│\n"
+"└────────────────────────┘\n"); 
+printf("1) Exit Box\n");
+action = choice();
+switch (action)
+{
+  case 1: room = 3;
   break;
    
   default: error();
@@ -284,15 +407,32 @@ while (!dead && !wimp){
   
   case 6: box2();
   break;
+  
+  case 7: box3();
+  break;
+  
+  case 8: box4();
+  break;
+  
+  case 9: room5();
+  break;
  }
 }
 
 if (dead) {
- printf("You died\n");
+ printf("\n");
+ printf("You have died\n");
+ printf("\n\n\n");
+ sleep (1);
+ printf("Thank you for playing!\n");
 }
 
 else if (wimp){
+ printf("\n");
  printf("You are a coward!!!!\n");
+ printf("\n\n\n");
+ sleep (1);
+ printf("Thank you for playing!\n");
 }
 
 }
@@ -346,9 +486,9 @@ do
 
       case 3:
       {
-        printf("Alright, exiting the program...\n");
+        printf("Exiting the program...\n");
          sleep(1);
-	 printf("Thanks for playing!\n");
+	 printf("Thank you for playing!\n");
           break;
       }
 
