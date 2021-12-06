@@ -6,7 +6,7 @@ int action;
 int dead = 0;
 int wimp = 0;
 int room = 1;
-int havekey = 0;
+int haskey = 0;
 
 void error(){
 printf("Error Occured\n"); //Prints if while loops dont have a case met//
@@ -230,21 +230,74 @@ switch (action)
 }
 
 void room6(){
-sleep (1);
 printf("You have been plunged into darkness\n");
-sleep (1);
 printf("You have to feel around\n");
-sleep (1);
 printf("You feel a door handle to the left \n");
-sleep (1);
 printf("There is a box to the right\n");
-sleep (1);
 printf("There is a box in front of you\n");
-sleep (1);
-printf("1) Open try open door handle\n");
+printf("You cannot go back now\n\n");
+printf("1) Try open door\n");
 printf("2) Open box to the right of you\n");
 printf("3) Open box in front of you\n\n\n");
-printf("You cannot go back now\n");
+action = choice();
+switch (action)
+{
+  case 1: if (!haskey){
+   printf("\n");
+   printf("You need to find the key\n");
+   sleep (2);
+   printf("\n");
+  }
+   else{
+  room = 1;
+  }
+  break;
+  
+  case 2: if (!haskey){
+  printf("\n");
+  printf("You found a key!");
+  haskey = 1;
+  sleep (2);
+  printf("\n");
+  }
+  else{
+  printf("You have already looked here\n");
+  }
+  break;
+  
+  case 3: room = 6; 
+  break;
+   
+
+  default: error();
+  break; 
+   }
+   move();
+}
+
+
+void room7(){
+printf(
+"┌─────────────────┬───┬───────────────────┐\n"
+"│    1            ├───┤                   │\n"
+"│ ┌─┬─┬─┐         │   │                   │\n"
+"│ │┼│o│┼│         ├───┤              2    │\n"
+"├─┴─┴─┴─┴──       │   │           ┌─┬─┬─┐ │\n"
+"│                 ├───┤           │┼│o│┼│ │\n"
+"│                 │   │          ─┴─┴─┴─┴─┤\n"
+"│    3            ├───┤                   │\n"
+"│ ┌─┬─┬─┐         │   │                   │\n"
+"│ │┼│o│┼│         ├───┤                   │\n"
+"├─┴─┴─┴─┴────     │   │                   │\n"
+"│                 ├───┤                   │\n"
+"│                 │   │                   │\n"
+"│                 ├───┤                   │\n"
+"│                 │   │                   │\n"
+"└─────────────────┴───┴───────────────────┘\n");
+printf("1) Open box 1\n");
+printf("2) Open box 2\n");
+printf("3) Open box 3\n");
+printf("4) Go back to testing room\n");
 action = choice();
 switch (action)
 {
@@ -265,7 +318,6 @@ switch (action)
    }
    move();
 }
-
 void box1(){
 printf(
 "┌────────────────────────┐\n"
@@ -521,7 +573,10 @@ do
       case 2:
       {
       system("clear");
-       printf("This will be updated in future \n");
+       printf("The aim of the game is to retrieve the hidden formula \n");
+       printf("Each stage of the game will give you options. \n");
+       printf("Enter your choice then hit enter. \n");
+       printf("Some stages may require certain items or codes. \n");
       break;
       }
 
@@ -545,7 +600,6 @@ do
 
   return 0;
   }
-
 
 
 
