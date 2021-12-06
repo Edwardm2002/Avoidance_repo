@@ -243,25 +243,30 @@ action = choice();
 switch (action)
 {
   case 1: if (!haskey){
+   system("clear");
    printf("\n");
    printf("You need to find the key\n");
-   sleep (2);
+   sleep (4);
    printf("\n");
   }
-   else{
+   else if (haskey){ 
   room = 1;
   }
   break;
   
   case 2: if (!haskey){
+  system("clear");
   printf("\n");
-  printf("You found a key!");
+  printf("You found a key!\n");
   haskey = 1;
-  sleep (2);
+  sleep (4);
   printf("\n");
   }
   else{
+  system("clear");
+  printf("\n");
   printf("You have already looked here\n");
+  printf("\n");
   }
   break;
   
