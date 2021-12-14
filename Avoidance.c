@@ -7,6 +7,8 @@ int dead = 0;
 int wimp = 0;
 int room = 1;
 int haskey = 0;
+int hassword = 0; 
+int gotrecipe = 0;  //Declaration of variables//
 
 void error(){
 printf("Error Occured\n"); //Prints if while loops dont have a case met//
@@ -250,7 +252,7 @@ switch (action)
    printf("\n");
   }
    else if (haskey){ 
-  room = 1;
+  room = 11;
   }
   break;
   
@@ -283,39 +285,43 @@ switch (action)
 
 void room7(){
 printf(
-"┌─────────────────┬───┬───────────────────┐\n"
-"│    1            ├───┤                   │\n"
-"│ ┌─┬─┬─┐         │   │                   │\n"
-"│ │┼│o│┼│         ├───┤              2    │\n"
-"├─┴─┴─┴─┴──       │   │           ┌─┬─┬─┐ │\n"
-"│                 ├───┤           │┼│o│┼│ │\n"
-"│                 │   │          ─┴─┴─┴─┴─┤\n"
-"│    3            ├───┤                   │\n"
-"│ ┌─┬─┬─┐         │   │                   │\n"
-"│ │┼│o│┼│         ├───┤                   │\n"
-"├─┴─┴─┴─┴────     │   │                   │\n"
-"│                 ├───┤                   │\n"
-"│                 │   │                   │\n"
-"│                 ├───┤                   │\n"
-"│                 │   │                   │\n"
-"└─────────────────┴───┴───────────────────┘\n");
-printf("1) Open box 1\n");
-printf("2) Open box 2\n");
-printf("3) Open box 3\n");
-printf("4) Go back to testing room\n");
+"┌─────────────────────────────────────────┐\n"
+"│    0     0                              │\n"
+"│    0     0                              │\n"
+"│    0     0                              │\n"
+"│    0     0                              │\n"
+"│    0     0                              │\n"
+"│    0     0                              │\n"
+"│    0     0                              │\n"
+"│   ┌─┬───┬─┐                             │\n"
+"│   │┼│000│┼│                             │\n"
+"│   └─┴───┴─┘                        │    │\n"
+"│                                    │    │\n"
+"│                                   ─┼─   │\n"
+"│                                    │    │\n"
+"│                                         │\n"
+"└─────────────────────────────────────────┘\n");
+printf("What's this....?\n");
+sleep(1); 
+printf("A sword!!!\n");
+sleep(1); 
+printf("This may be useful later\n");
+sleep(1);
+printf("1) Grab the sword \n");
+printf("2) Go on without the sword\n");
+printf("3) Go back\n");
+
 action = choice();
 switch (action)
 {
-  case 1: room = 6;
+  case 1: room = 12;
+  hassword = 1;
+  break;
+
+  case 2: room = 12;
   break;
   
-  case 2: room = 7;
-  break;
-  
-  case 3: room = 6; 
-  break;
-   
-  case 4: room = 4;
+  case 3: room = 10;
   break;
   
   default: error();
@@ -323,6 +329,95 @@ switch (action)
    }
    move();
 }
+
+
+void room8(){
+printf(
+"┌─────────────────────────────────────────┐\n"
+"│    0     0                              │\n"
+"│    0     0                              │\n"
+"│    0     0                              │\n"
+"│    0     0                              │\n"
+"│    0     0                              │\n"
+"│    0     0                              │\n"
+"│    0     0                              │\n"
+"│   ┌─┬───┬─┐                             │\n"
+"│   │┼│000│┼│                             │\n"
+"│   └─┴───┴─┘                             │\n"
+"│                                         │\n"
+"│           _ ┌─┐                         │\n"
+"│          _  │0│                         │\n"
+"│         _┌──┼─┼┐                        │\n"
+"└──────────┴─────┴────────────────────────┘\n");
+printf("There is a creature\n");
+sleep(1); 
+printf("Slay it to stay alive\n");
+sleep(1); 
+printf("1) Try to slay the creature\n");
+printf("2) Go back\n");
+
+action = choice();
+switch (action)
+{
+  case 1: if (!hassword){
+  system("clear");
+  printf("\n\n\n");
+  printf("You are too weak\n");
+  sleep (3);
+  dead = 1;
+  }
+   else if (hassword){ 
+  room = 13;
+  }
+  break;
+  
+  case 2: wimp = 1;
+  break;
+  
+  default: error();
+  break; 
+   }
+   move();
+}
+
+
+void room9(){
+printf(
+"┌─────────────────────────────────────────┐\n"
+"│    0     0                              │\n"
+"│    0     0                              │\n"
+"│    0     0                              │\n"
+"│    0     0                              │\n"
+"│    0     0                              │\n"
+"│    0     0                              │\n"
+"│    0     0                              │\n"
+"│   ┌─┬───┬─┐                             │\n"
+"│   │┼│000│┼│                             │\n"
+"│   └─┴───┴─┘                             │\n"
+"│                                         │\n"
+"│                                         │\n"
+"│                             ┌─┐         │\n"
+"│                        ┌────┤x│         │\n"
+"└────────────────────────┴────┴─┴─────────┘\n");
+printf("You have slain the creature\n");
+sleep(1); 
+printf("Lets open the box\n");
+sleep(1); 
+printf("Press 1 to continue\n");
+
+
+action = choice();
+switch (action)
+{
+  case 1: gotrecipe = 1;
+  break;
+  
+  default: error();
+  break; 
+   }
+   move();
+}
+
 void box1(){
 printf(
 "┌────────────────────────┐\n"
@@ -481,7 +576,7 @@ int Game(){
 system("clear");
 room1();
 
-while (!dead && !wimp){
+while (!dead && !wimp && !gotrecipe){
 
  switch (room){
  
@@ -514,6 +609,15 @@ while (!dead && !wimp){
   
   case 10: room6();
   break;
+  
+  case 11: room7();
+  break;
+  
+  case 12: room8();
+  break;
+  
+  case 13: room9();
+  break;
  }
 }
 
@@ -521,7 +625,7 @@ if (dead) {
  printf("\n");
  printf("You have died\n");
  printf("\n\n\n");
- sleep (1);
+ sleep (2);
  printf("Thank you for playing!\n");
 }
 
@@ -529,7 +633,18 @@ else if (wimp){
  printf("\n");
  printf("You are a coward!!!!\n");
  printf("\n\n\n");
+ sleep (2);
+ printf("Thank you for playing!\n");
+}
+
+else if (gotrecipe){
+printf("\n");
+ printf("You have beaten the game and retreved the lost formula\n");
  sleep (1);
+ printf("It contains information on how to make deadly bombs which could bring the world to its knees!\n\n");
+ sleep (1);
+ printf("Well done :)\n\n");
+ sleep (2);
  printf("Thank you for playing!\n");
 }
 
@@ -571,7 +686,7 @@ do
 
       case 1:
       {
-       Game();
+       Game();  //if option 1 is chosen then game function is run//
         break;
       }
 
@@ -587,7 +702,7 @@ do
 
       case 3:
       {
-        printf("Exiting the program...\n");
+        printf("Exiting the game...\n");
          sleep(1);
 	 printf("Thank you for playing!\n");
           break;
