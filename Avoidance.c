@@ -261,13 +261,14 @@ switch (action)
   printf("\n");
   printf("You found a key!\n");
   haskey = 1;
-  sleep (4);
+  sleep (3);
   printf("\n");
   }
-  else{
+  else if (haskey){
   system("clear");
   printf("\n");
   printf("You have already looked here\n");
+  sleep (3);
   printf("\n");
   }
   break;
@@ -641,7 +642,7 @@ else if (gotrecipe){
 printf("\n");
  printf("You have beaten the game and retreved the lost formula\n");
  sleep (1);
- printf("It contains information on how to make deadly bombs which could bring the world to its knees!\n\n");
+ printf("It contains information on how to make deadly bomb's which could bring the world to its knees!\n\n");
  sleep (1);
  printf("Well done :)\n\n");
  sleep (2);
