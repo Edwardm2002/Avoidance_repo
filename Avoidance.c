@@ -1,3 +1,5 @@
+//This code needs to be ran on a linux operating system using the gcc compiler in order to run as expected. This code has been tested on ubuntu 21.10 and Ubuntu 21.04//
+
 #include <stdio.h>
 #include <unistd.h>
 #include <stdlib.h>
@@ -11,7 +13,7 @@ int hassword = 0;
 int gotrecipe = 0;  //Declaration of variables//
 
 void error(){
-printf("Error Occured\n"); //Prints if while loops dont have a case met//
+printf("Error Occured\n"); //Prints if while loops encounters an error//
 }
 
 int choice(){
@@ -577,7 +579,7 @@ int Game(){
 system("clear");
 room1();
 
-while (!dead && !wimp && !gotrecipe){
+while (!dead && !wimp && !gotrecipe){   //loops the game until you die, run away or get the recipe, therefore winning the game//
 
  switch (room){
  
@@ -632,7 +634,7 @@ if (dead) {
 
 else if (wimp){
  printf("\n");
- printf("You are a coward!!!!\n");
+ printf("You are a coward!!!!\n");  //Statements to check which scenario has happened//
  printf("\n\n\n");
  sleep (2);
  printf("Thank you for playing!\n");
@@ -696,7 +698,7 @@ do
       system("clear");
        printf("The aim of the game is to retrieve the hidden formula \n");
        printf("Each stage of the game will give you options. \n");
-       printf("Enter your choice then hit enter. \n");
+       printf("Enter the number of your choice then hit enter. \n");
        printf("Some stages may require certain items or codes. \n");
       break;
       }
@@ -712,11 +714,11 @@ do
       default:
       {
         //If entered number for menu is not a valid input
-        printf("Unrecognized input, enter a valid number\n\n");
+        printf("Error occured, enter a valid number\n\n");
         break;
       }
     }
-  }while((menu_option != 3) && (menu_option !=1)); //Ends the menu after user enters "1 or 3"
+  }while((menu_option != 3) && (menu_option !=1)); //Ends the menu loop after user enters "1 or 3"
 
 
   return 0;
