@@ -481,24 +481,29 @@ printf(
 "││                      ││\n"
 "│┼──────────────────────┼│\n"
 "└────────────────────────┘\n");
+
+system("clear");
 printf("It seems like you have stumbled upon a bomb\n"); 
-printf("Press 1 to continue\n");
+printf("\n\n\n");
+printf("3\n");
+sleep (1);
+printf("2\n");
+sleep (1);
+printf("1\n\n");
+sleep (1);
+printf("You have been blown up\n");
+printf("Press 1 to Restart\n");
+printf("Press 2 to quit\n");
 action = choice();
 switch (action)
 {
   case 1: 
-  system("clear");
-  printf("\n\n\n");
-  printf("3\n");
-  sleep (1);
-   printf("2\n");
-  sleep (1);
-   printf("1\n");
-  sleep (1);
-  printf("You have been blown up\n");
-  dead = 1;
+  room = 1;
   break;
    
+  case 2: 
+  dead = 1;
+  break;
   default: error();
   break; 
    }
@@ -628,7 +633,7 @@ if (dead) {
  printf("\n");
  printf("You have died\n");
  printf("\n\n\n");
- sleep (2);
+ sleep (1);
  printf("Thank you for playing!\n");
 }
 
@@ -667,7 +672,7 @@ printf(
 "██╔══██║░╚████╔╝░██║░░██║██║██║░░██║██╔══██║██║╚████║██║░░██╗██╔══╝░░\n"
 "██║░░██║░░╚██╔╝░░╚█████╔╝██║██████╔╝██║░░██║██║░╚███║╚█████╔╝███████╗\n"
 "╚═╝░░╚═╝░░░╚═╝░░░░╚════╝░╚═╝╚═════╝░╚═╝░░╚═╝╚═╝░░╚══╝░╚════╝░╚══════╝\n");
- sleep (5);
+ sleep (3);
  
 system("clear");
 
