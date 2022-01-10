@@ -138,7 +138,7 @@ switch (action)
   case 2: room = 6;
   break;
   
-  case 3: room = 8; //to be changed in future//
+  case 3: room = 8; 
   break;
    
   default: error();
