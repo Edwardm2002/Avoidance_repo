@@ -250,7 +250,7 @@ switch (action)
    system("clear");
    printf("\n");
    printf("You need to find the key\n");
-   sleep (4);
+   sleep (2);
    printf("\n");
   }
    else if (haskey){ 
@@ -263,14 +263,14 @@ switch (action)
   printf("\n");
   printf("You found a key!\n");
   haskey = 1;
-  sleep (3);
+  sleep (2);
   printf("\n");
   }
   else if (haskey){
   system("clear");
   printf("\n");
   printf("You have already looked here\n");
-  sleep (3);
+  sleep (2);
   printf("\n");
   }
   break;
