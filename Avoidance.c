@@ -13,18 +13,18 @@ int hassword = 0;
 int gotrecipe = 0;  //Declaration of variables//
 
 void error(){
-printf("Error Occured\n"); //Prints if while loops encounters an error//
+printf("Error Occured\n"); //Function that runs if the switch statements encounters an error//
 }
 
 int choice(){
  char actionstring[50];
  fgets(actionstring, sizeof (actionstring), stdin); //takes input and stores it in actionstring//
- return atoi(actionstring);; //takes string and turns it into int//
+ return atoi(actionstring);; //takes string and turns it into int so it can be used in the cases on switch statments//
 }
 
 void move(){
 system ("clear");
-fflush(stdout);  //clears output buffer and clears screen//
+fflush(stdout);  //clears buffer and clears screen (Used after a case is met)//
 printf("\n\n\n");
 }
 
@@ -48,6 +48,9 @@ printf("it has been abandoned for many years therefore there will be many supris
 printf("Do you want to enter?\n");
 printf("1) Enter\n");
 printf("2) Run Away\n");
+
+//prints the scene then the options for the user to choose from//
+
 action = choice();
 switch (action)
 {
@@ -63,6 +66,7 @@ switch (action)
    move();
 }
 
+//cases statments are chosen based on user input then appropriate action is taken//
 
 void room2(){
 printf(
@@ -627,6 +631,7 @@ while (!dead && !wimp && !gotrecipe){   //loops the game until you die, run away
   case 13: room9();
   break;
  }
+ //Assigns a room function to a room variable for example box4 - room = 8 //
 }
 
 if (dead) {
