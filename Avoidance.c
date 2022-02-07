@@ -663,7 +663,7 @@ printf("\n");
 
 }
 
-int main()
+int splashscreen()
 {
 
 //clears terminal and prints splash screen and menu
@@ -680,59 +680,59 @@ printf(
  sleep (3);
  
 system("clear");
+}
 
 
-int menu_option;
+
+int menuinstructions(){
    printf("------------------------\n");
-   printf("Welcome to Avoidance \n");
-   printf("The aim of the game is to reach the end without dying \n" );
+   printf("Press 1 to play \n");
+   printf("Press 2 for help \n"); 
+   printf("Press 3 to exit \n");
    printf("------------------------\n");
-
-
-do
-  {
-    printf("Press 1 to play \n");
-    printf("Press 2 for help \n"); 
-    printf("Press 3 to exit \n");
-    scanf("%d", &menu_option);
-    switch(menu_option){
-
-      case 1:
-      {
-       Game();  //if option 1 is chosen then game function is run//
-        break;
-      }
-
-      case 2:
-      {
-      system("clear");
+   }
+   
+int menu(){
+action = choice();
+switch (action)
+{
+  case 1: Game();
+  break;
+  
+  case 2: 
+  system("clear"); 
+  
        printf("The aim of the game is to retrieve the hidden formula \n");
        printf("Each stage of the game will give you options. \n");
        printf("Enter the number of your choice then hit enter. \n");
        printf("Some stages may require certain items or codes. \n");
-      break;
-      }
-
-      case 3:
-      {
+       menuinstructions();
+       menu();
+  break;
+  
+  case 3:
         printf("Exiting the game...\n");
          sleep(1);
 	 printf("Thank you for playing!\n");
           break;
-      }
 
       default:
-      {
         //If entered number for menu is not a valid input
-        printf("Error occured, enter a valid number\n\n");
+        printf("Error occured, please enter a valid number from 1-3\n");
+        
+        menu();
         break;
-      }
-    }
-  }while((menu_option != 3) && (menu_option !=1)); //Ends the menu loop after user enters "1 or 3"
+   }
+ }   
+   
+  int main(){
+splashscreen();
+menuinstructions();
+menu();
+}
 
 
-  return 0;
-  }
+  
 
 
 
