@@ -25,10 +25,32 @@ int choice(){
 void move(){
 system ("clear");
 fflush(stdout);  //clears buffer and clears screen (Used after a case is met)//
-printf("\n\n\n");
+}
+
+void inventory(){
+printf("\033[1;31m");  //sets colour to red//
+printf("Inventory   ");
+printf("\033[0m"); //sets the colour back to default//
+if (haskey) 
+{  
+printf("\033[1;31m");
+printf("Key   ");
+printf("\033[0m");
+}
+
+if (hassword) 
+{  
+printf("\033[1;31m");
+printf("Sword   ");
+printf("\033[0m");
+}
+printf("\033[1;31m");
+printf("\n -------------------------------------------------------------------------\n");
+printf("\033[0m");
 }
 
 void room1(){
+inventory(); //runs the inventory function so the inventory is displayed at the top//
 printf(
 "┌─────────────────────────────────────────┐\n"
 "│                                         │\n"
@@ -69,6 +91,7 @@ switch (action)
 //cases statments are chosen based on user input then appropriate action is taken//
 
 void room2(){
+inventory();
 printf(
 "┌─────────────────────────────────────────┐\n"
 "│                                         │\n"
@@ -111,6 +134,7 @@ switch (action)
 }
 
 void room3(){
+inventory();
 printf(
 "┌─────────────────────────────────────────┐\n"
 "│                                         │\n"
@@ -152,10 +176,9 @@ switch (action)
 }
 
 void room4(){
+inventory();
 printf(
 "┌─────────────────────────────────────────┐\n"
-"│                                         │\n"
-"│                                         │\n"
 "│                                         │\n"
 "│          TESTING IN PROGRESS            │\n"
 "│                                         │\n"
@@ -195,6 +218,7 @@ switch (action)
 }
 
 void room5(){
+inventory();
 printf(
 "┌─────────────────┬───┬───────────────────┐\n"
 "│    1            ├───┤                   │\n"
@@ -238,6 +262,7 @@ switch (action)
 }
 
 void room6(){
+inventory();
 printf("You have been plunged into darkness\n");
 printf("You have to feel around\n");
 printf("You feel a door handle to the left \n");
@@ -291,9 +316,9 @@ switch (action)
 
 
 void room7(){
+inventory();
 printf(
 "┌─────────────────────────────────────────┐\n"
-"│    0     0                              │\n"
 "│    0     0                              │\n"
 "│    0     0                              │\n"
 "│    0     0                              │\n"
@@ -339,9 +364,9 @@ switch (action)
 
 
 void room8(){
+inventory();
 printf(
 "┌─────────────────────────────────────────┐\n"
-"│    0     0                              │\n"
 "│    0     0                              │\n"
 "│    0     0                              │\n"
 "│    0     0                              │\n"
@@ -389,9 +414,9 @@ switch (action)
 
 
 void room9(){
+inventory();
 printf(
 "┌─────────────────────────────────────────┐\n"
-"│    0     0                              │\n"
 "│    0     0                              │\n"
 "│    0     0                              │\n"
 "│    0     0                              │\n"
@@ -654,7 +679,7 @@ else if (gotrecipe){
 printf("\n");
  printf("You have beaten the game and retreved the lost formula\n");
  sleep (1);
- printf("It contains information on how to make deadly bomb's which could bring the world to its knees!\n\n");
+ printf("It contains information on how to make deadly bombs which could bring the world to its knees!\n\n");
  sleep (1);
  printf("Well done :)\n\n");
  sleep (2);
